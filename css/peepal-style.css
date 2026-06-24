@@ -441,6 +441,10 @@ header span i {
   border: none;
   background: #ee7e19;
   padding-top: 10px;
+  padding-bottom: 10px;
+  /* Added bottom padding to fix the cut-off */
+  height: auto !important;
+  /* Ensure the box stretches to fit its content */
 }
 
 .navbar-default .dropdown-menu>li a:hover {
@@ -487,6 +491,33 @@ header span i {
   border-left-color: #fff;
 }
 
+/* Bulletproof fix to force the orange box and width */
+.navbar-default .dropdown-submenu>.dropdown-menu {
+  height: auto !important;
+  min-width: max-content !important;
+  /* This expands the box so the 't' is not cut off */
+  width: max-content !important;
+  padding-bottom: 10px !important;
+  background-color: #ee7e19 !important;
+  overflow: visible !important;
+  /* Stop clipping the text */
+}
+
+/* Force the orange background directly onto the list items so it never disappears */
+.navbar-default .dropdown-submenu>.dropdown-menu>li {
+  float: none !important;
+  display: block !important;
+  /* background-color: #ee7e19 !important; */
+}
+
+/* Ensure the links look correct */
+.navbar-default .dropdown-submenu>.dropdown-menu>li>a {
+  color: #000000 !important;
+}
+
+.navbar-default .dropdown-submenu>.dropdown-menu>li>a:hover {
+  color: #FFFFFF !important;
+}
 
 /*---------------------------------------
       HOME              

@@ -17,17 +17,17 @@
   $(document).on('click', '.dropdown-submenu > a', function (e) {
     e.stopPropagation();
     e.preventDefault();
+
     // Close other dropdowns
     $('.dropdown-submenu').removeClass('open');
+    $('.dropdown-submenu .dropdown-menu').hide();
+
     // Open this one
-    $(this).parent().addClass('open'); // Notice we changed $(this) to $(this).parent()
+    $(this).parent().addClass('open');
     var $submenu = $(this).next('.dropdown-menu');
-    $submenu.css({
-      top: $(this).offset().top,
-      left: $(this).offset().left + $(this).outerWidth()
-    });
+    $submenu.toggle();
   });
-  ;
+
 
   // Close dropdowns when clicking outside
   $(document).on('click', function (e) {
